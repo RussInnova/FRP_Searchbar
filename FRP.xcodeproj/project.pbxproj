@@ -123,6 +123,7 @@
 				TargetAttributes = {
 					538DC4A51D197AD9007101FC = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = U46Z7Y3JX3;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -332,6 +333,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U46Z7Y3JX3;
 				INFOPLIST_FILE = FRP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = russinnova.FRP;
@@ -346,6 +348,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U46Z7Y3JX3;
 				INFOPLIST_FILE = FRP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = russinnova.FRP;

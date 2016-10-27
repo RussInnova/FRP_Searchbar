@@ -17,13 +17,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var shownCities = [String]() // Data source for UITableView
-    let allCities = ["New York", "London", "Oslo", "Warsaw", "Berlin", "Praga"] // Our mocked API data source
+    let allCities = ["New York", "London", "Oslo", "Warsaw", "Berlin", "Praga", "Lisbon"] // Our mocked API data source
     let disposeBag = DisposeBag() // Bag of disposables to release them when view is being deallocated (protect against retain cycle)
         
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        
+        searchBar.delegate = self
+
         searchBar
         .rx_text //Observable property from RxCocoa
             .throttle(0.5, scheduler: MainScheduler.instance) //wait 0.5s
@@ -33,7 +34,7 @@ class ViewController: UIViewController {
                 self.shownCities = self.allCities.filter{$0.hasPrefix(query)} // We now do our "API Request" to find cities.
                 self.tableView.reloadData() //and reload tableview
                 self.myLbl.text = query
-        }
+            }
         .addDisposableTo(disposeBag)
     }
 }
@@ -41,7 +42,7 @@ class ViewController: UIViewController {
 // MARK: - UITableViewDataSource
 /// Here we have standard data source extension for ViewController
 
-extension ViewController: UITableViewDataSource {
+extension ViewController: UITableViewDataSource, UISearchBarDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shownCities.count
@@ -52,6 +53,11 @@ extension ViewController: UITableViewDataSource {
         cell.textLabel?.text = shownCities[indexPath.row]
         
         return cell
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        
+        searchBar.resignFirstResponder()
     }
 }
 
